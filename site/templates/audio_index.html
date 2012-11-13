@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+    <head>
+	<link rel="stylesheet" type="text/css" href="/static/foundscapes.css" />
+	<span class = "style2">
+	<title>. . .foundscapes. . .</title>
+	    <meta name="Keywords" CONTENT="foundscape, foundscapes, audio collage, mixtapes, mix tapes, analog, curated mix, mixtape philosophy, mixtape anthropology"> 
+	    <meta name="Description" CONTENT="A digital archive of analog memory; mixtape anthropology."> 
+	    <meta name="Author" CONTENT="foundscapes"> 
+	    <link rel="shortcut icon"
+	    href="http://www.angrytooth.com/foundscapes/tape.ico">
+	</span>
+    </head>
+    <body>
+    
+	{% include "menu.html" %}
+	<h1></h1>
+	<span class = "style2">
+	<br>
+	    <span class="style2">. . .foundscapes. . .<br>
+		a digital archive of analog anthropology</span>
+	    <br>
+		<br>
+	    
+	    {% if my_tapes %}
+	    {% for tape in my_tapes %}
+		<span class = "style2"> {{tape.title}} <br>
+		{% if tape.image_url|length > 0 %} 
+		<a href="/tapes/detail/?id={{tape.id}}"><img src="{{ tape.image_url }}" alt="{{tape.title}}" style="border-color: #991900" border="3"/></a>
+		    {% endif %}<br>
+	    </span>
+		<br>
+		    <br>
+	    {% endfor %}
+	    
+	    {% else %}
+	<span class="style2">
+	    <p>No tapes are available.</p>
+	    {% endif %}
+	    <br>
+		<br>
+	</span>
+    </body>
+
+
+    </html>

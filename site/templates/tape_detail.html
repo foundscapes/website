@@ -1,0 +1,102 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="/static/foundscapes.css" />
+<title>. . .foundscapes. . .</title>
+</head>
+<body>
+    	{% include "menu.html" %}
+<span class = "style2">
+    
+
+<br>
+    
+    <table align="center" width="80%">
+    <tr>
+    <td>
+    <span class="style2">
+	Title: {{ the_tape.title }}<br>
+	Submitter: {{ the_tape.submitter}}<br>
+	Author: {{ the_tape.author }}<br>
+	{{ the_tape.year|date:"Y" }}; {{ the_tape.location }}<br>
+    
+	<br>
+	    
+	    {{ the_tape.history }}
+	    <br>
+	    <br>
+    </span>
+    </td>
+    </tr>
+    </table>
+	<br>
+	
+	{% for side in the_tape.side_set.all %}
+	    <b>side: {{ side.side}}</b><br>
+	    <img src="{{ side.image_url }}"><br>
+	    music: {{ side.music_url }}<br>
+	    <br>
+	    {% for track in side.track_set.all %}
+		{{ track.artist }}: {{ track.song_title }}<br>
+		
+	    {% endfor %}
+	    
+	    {% for image in side.artwork_set.all %}
+		  <img src="{{ image.image_url }}"><br>
+
+	    {% endfor %}
+	{% endfor %}
+    
+    
+</body>
+
+
+</html>
+
+
+
+<!--
+from django.db import models
+
+# Create your models here.
+
+class User(models.Model):
+	name                = models.CharField(max_length=255)
+	
+	def __unicode__(self):
+		return self.name
+
+
+
+class Side(models.Model):
+	tape                = models.ForeignKey(Tape)
+	side                = models.CharField(max_length=1)
+	image_url   		= models.CharField(max_length=255)
+	music_url   		= models.CharField(max_length=255)
+
+	def __unicode__(self):
+		return self.tape.title + ' - ' + self.side
+
+class Track(models.Model):
+	side                = models.ForeignKey(Side)
+	song_title  		= models.CharField(max_length=255)
+	artist              = models.CharField(max_length=255)
+	track_num   		= models.IntegerField()
+
+	def __unicode__(self):
+		return self.artist
+
+class Artwork(models.Model):
+	tape                = models.ForeignKey(Tape)
+	side                = models.ForeignKey(Side)
+	image_url           = models.CharField(max_length=255)
+	
+	def __unicode__(self):
+		return self.image_url
+
+
+
+-->

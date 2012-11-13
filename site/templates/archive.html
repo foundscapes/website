@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+    <head>
+	<link rel="stylesheet" type="text/css" href="/static/foundscapes.css" />
+	<title>. . .foundscapes. . .</title>
+
+    </head>
+    <body>
+    
+	{% include "menu.html" %}
+	<h1>Archive</h1>
+	
+	<br>
+	{% if my_tapes %}
+	    <ul>
+	    {% for tape in my_tapes %}
+		<li>{{ tape.creator }} - {{ tape.name }}<br> {{tape.author}}<br>
+		<img src="{{ tape.image_url }}">
+		<a href="/tapes/detail/?id={{tape.id}}"><img src="{{ tape.image_url }}"></a></li>
+		<audio controls="controls">
+		    <source src={{side.music_url}} type="audio/ogg" />
+		    <source src="horse.mp3" type="audio/mp3" />
+		</audio>
+		
+	    {% endfor %}
+	    </ul>
+	{% else %}
+	    <p>No tapes are available.</p>
+	{% endif %}
+    
+</body>
+
+
+</html>

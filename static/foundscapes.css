@@ -1,0 +1,46 @@
+body {
+	background-color: white;
+}
+.style1 {
+	font-family: "lucida sans unicode", lucida grande, sans-serif;
+	color: #F2330D;
+	font-size: 18px;
+        text-decoration: none;
+
+}
+.style2 {
+	font-family: "lucida sans unicode", lucida grande, sans-serif;
+	color: #422924;
+	font-size: 18px;
+        text-decoration: none;
+
+}
+.style3 {
+	font-family: "lucida sans unicode", lucida grande, sans-serif;
+	color: white;
+	font-size: 18px;
+        text-decoration: none;
+
+}
+
+.style4 {
+	font-family: "lucida sans unicode", lucida grande, sans-serif;
+	color: #F2330D;
+	font-size: 14px;
+        text-decoration: none;
+}
+
+.nav a:link { color: #991900; text-decoration: none}
+.nav a:active { color: #991900; text-decoration: none}
+.nav a:visited { color: #991900; text-decoration: none}
+.nav a:hover { color: #000000; text-decoration: none}
+
+.main a:link { color: #F2330D; text-decoration: none}
+.main a:active { color: #F2330D; text-decoration: none}
+.main a:visited { color: #F2330D; text-decoration: none}
+.main a:hover { color: #991900; text-decoration: underline}
+
+img
+{
+ border-color: #991900;
+} 
